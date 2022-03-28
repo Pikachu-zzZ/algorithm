@@ -1,5 +1,7 @@
 package com.example.code.listNodee;
 
+import java.util.Stack;
+
 /*
 /链表的题通常需要注意两点：
 
@@ -10,6 +12,8 @@ public class m82 {
 
 
     public ListNode deleteDuplicates(ListNode head) {
+
+
         if (head == null) {
             return head;
         }
