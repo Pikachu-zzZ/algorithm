@@ -19,4 +19,10 @@ public class bitTest {
 
     }
 
+    @Test
+    public void testE868(){
+        int i = new e868().binaryGap(8);
+        System.out.println(i);
+    }
+
 }

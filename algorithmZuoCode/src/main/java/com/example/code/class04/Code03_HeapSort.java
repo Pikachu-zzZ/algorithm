@@ -14,7 +14,8 @@ public class Code03_HeapSort {
 //		for (int i = 0; i < arr.length; i++) { // O(N)
 //			heapInsert(arr, i); // O(logN)
 //		}
-		// O(N)
+		// O(N)，优化后的堆排序，仅仅满足大根堆的要求，不满足整个堆有序
+		// 只需要heapify，每一次从后面开始遍历
 		for (int i = arr.length - 1; i >= 0; i--) {
 			heapify(arr, i, arr.length);
 		}

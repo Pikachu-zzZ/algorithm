@@ -1,5 +1,7 @@
 package com.example.code.stringg;
 
+import org.junit.Test;
+
 public class stringTest {
 
     public static void main(String[] args) {
@@ -29,5 +31,14 @@ public class stringTest {
         System.out.println(s1);
 
 
+    }
+
+
+
+
+    @Test
+    public void e6070Test(){
+        String s = new e6070().digitSum("1234",2);
+        System.out.println(s);
     }
 }
