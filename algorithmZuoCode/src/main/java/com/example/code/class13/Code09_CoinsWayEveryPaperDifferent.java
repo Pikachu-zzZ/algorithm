@@ -11,7 +11,7 @@ public class Code09_CoinsWayEveryPaperDifferent {
 		if (rest < 0) {
 			return 0;
 		}
-		if (index == arr.length) { // 没钱了！
+		if (index == arr.length) { // 没钱了！ 来到终止位置
 			return rest == 0 ? 1 : 0;
 		} else {
 			return process(arr, index + 1, rest) + process(arr, index + 1, rest - arr[index]);

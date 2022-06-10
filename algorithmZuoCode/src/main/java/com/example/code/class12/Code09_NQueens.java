@@ -55,6 +55,7 @@ public class Code09_NQueens {
 			return 0;
 		}
 		// 如果你是13皇后问题，limit 最右13个1，其他都是0
+		// 8皇后就是8个1
 		int limit = n == 32 ? -1 : (1 << n) - 1;
 		return process2(limit, 0, 0, 0);
 	}
@@ -64,19 +65,36 @@ public class Code09_NQueens {
 	// 之前皇后的列影响：colLim
 	// 之前皇后的左下对角线影响：leftDiaLim
 	// 之前皇后的右下对角线影响：rightDiaLim
+
+
+	// colLim 列的限制，1的位置不能放皇后，0的位置可以
+	// leftDialim 左斜线的限制，1的位置不能放皇后，0的位置可以
+	// rightDiaLim 右斜线的限制，1的位置不能放皇后，0的位置可以
+	// 位运算优化
 	public static int process2(int limit, int colLim, int leftDiaLim, int rightDiaLim) {
+
+		// 所有的位置都是皇后，有效
 		if (colLim == limit) {
 			return 1;
 		}
 		// pos中所有是1的位置，是你可以去尝试皇后的位置
 		// 重点：
+		// colLim | leftDiaLim | rightDiaLim 总限制
+		// 截掉最前面的1
+
 		int pos = limit & (~(colLim | leftDiaLim | rightDiaLim));
 		int mostRightOne = 0;
 		int res = 0;
 		while (pos != 0) {
+			// 提取最右边的1，进行操作判断
 			mostRightOne = pos & (~pos + 1);
 			pos = pos - mostRightOne;
-			res += process2(limit, colLim | mostRightOne, (leftDiaLim | mostRightOne) << 1,
+			res += process2(limit,
+
+					colLim | mostRightOne,
+
+					(leftDiaLim | mostRightOne) << 1,
+
 					(rightDiaLim | mostRightOne) >>> 1);
 		}
 		return res;

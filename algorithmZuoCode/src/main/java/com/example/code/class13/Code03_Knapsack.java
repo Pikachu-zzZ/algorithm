@@ -16,6 +16,7 @@ public class Code03_Knapsack {
 
 	// index 0~N
 	// rest 负~bag
+	// 递归
 	public static int process(int[] w, int[] v, int index, int rest) {
 		if (rest < 0) {
 			return -1;
@@ -32,6 +33,8 @@ public class Code03_Knapsack {
 		return Math.max(p1, p2);
 	}
 
+
+	// dp
 	public static int dp(int[] w, int[] v, int bag) {
 		if (w == null || v == null || w.length != v.length || w.length == 0) {
 			return 0;

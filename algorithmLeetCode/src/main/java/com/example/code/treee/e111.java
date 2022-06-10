@@ -7,7 +7,20 @@ public class e111 {
             return 0;
         }
 
-        return Math.min(dfs(root.left) + 1,dfs(root.right) + 1);
+        if(root.left ==null && root.right ==null){
+            return 1;
+        }
+        int leftDepth = Integer.MAX_VALUE;
+        int rightDepth = Integer.MAX_VALUE;
+        if(root.left!=null){
+            leftDepth = dfs(root.left) + 1;
+        }
+
+        if(root.right!=null){
+            rightDepth = dfs(root.right) +1;
+        }
+
+        return Math.min(leftDepth,rightDepth);
     }
 
 

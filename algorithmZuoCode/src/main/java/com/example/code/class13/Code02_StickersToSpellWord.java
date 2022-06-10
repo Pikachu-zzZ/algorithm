@@ -48,6 +48,8 @@ public class Code02_StickersToSpellWord {
 		return builder.toString();
 	}
 
+
+	// 记忆化搜索
 	public static int minStickers2(String[] stickers, String target) {
 		int N = stickers.length;
 		// 关键优化(用词频表替代贴纸数组)
@@ -110,6 +112,7 @@ public class Code02_StickersToSpellWord {
 				counts[i][cha - 'a']++;
 			}
 		}
+		// 缓存
 		HashMap<String, Integer> dp = new HashMap<>();
 		dp.put("", 0);
 		int ans = process3(counts, target, dp);
@@ -121,11 +124,11 @@ public class Code02_StickersToSpellWord {
 			return dp.get(t);
 		}
 		char[] target = t.toCharArray();
-		int[] tcounts = new int[26];
+		int[] tcounts = new int[26];  // t的词频
 		for (char cha : target) {
 			tcounts[cha - 'a']++;
 		}
-		int N = stickers.length;
+		int N = stickers.length; // 贴纸数量
 		int min = Integer.MAX_VALUE;
 		for (int i = 0; i < N; i++) {
 			int[] sticker = stickers[i];

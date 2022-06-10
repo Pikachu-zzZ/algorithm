@@ -21,6 +21,7 @@ public class Code09_CoinsWayNoLimit {
 		return ways;
 	}
 
+	// 记忆化搜索，只是使用dp数组保存重复计算的结果，但过程还是使用递归过程
 	public static int dp1(int[] arr, int aim) {
 		if (arr == null || arr.length == 0 || aim < 0) {
 			return 0;
@@ -40,6 +41,8 @@ public class Code09_CoinsWayNoLimit {
 		return dp[0][aim];
 	}
 
+
+	// 仅仅使用dp数组来更新dp数组
 	public static int dp2(int[] arr, int aim) {
 		if (arr == null || arr.length == 0 || aim < 0) {
 			return 0;
