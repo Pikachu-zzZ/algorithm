@@ -1,4 +1,4 @@
-package com.example.code.stringg;
+package com.example.code.doublePointer;
 
 import java.util.Stack;
 
